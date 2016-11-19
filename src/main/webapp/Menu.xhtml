@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Menu Principal</title>
+	<h:outputStylesheet library="headway\bootstrap-3.3.7-dist\css"
+		name="bootstrap.css" />
+	<h:outputScript library="headway\bootstrap-3.3.7-dist\js\"
+		name="bootstrap.js" />
+	<h:outputScript library="headway\js" name="jquery-3.1.1.min.js" />
+
+</h:head>
+<h:form>
+<p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:submenu label="Operacoes" icon="ui-icon-document">
+            <p:menuitem value="Carregar arquivo" url="CarregarArquivo.xhtml" />
+            <p:separator />
+            <p:menuitem value="Sair" url="http://www.hw2.com.br/" />
+        </p:submenu>
+ 
+        <p:submenu label="Relatorios" icon="ui-icon-pencil">
+            <p:menuitem value="Vendas por mês" url="RelatorioFiliaisPorMes.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Vendas por periodo" url="RelatorioFilialMaisVendeu.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Maior crescimento" url="RelatorioMaiorCrescimento.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Maior queda" url="RelatorioMaiorQueda.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
+        </p:submenu>
+ 
+        
+    </p:menubar>
+
+</h:form>
+</html>

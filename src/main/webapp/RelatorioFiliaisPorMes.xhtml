@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<f:metadata>
+		<f:viewAction action="#{relatorioBean.relatorioFilialPorMes}" />
+	</f:metadata>
+	<ui:define name="titulo">Relatório de filiais por mês</ui:define>
+	<ui:define name="corpo">
+		<h1>Relatório de filiais por mês</h1>
+		<h:form id="frm">
+
+
+
+			<div align="center">
+				<h:dataTable value="#{relatorioBean.listaFilialPorMes}" var="filial"
+					class="table table-striped table-hover">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Valor" />
+						</f:facet>
+						<h:outputText value="#{filial[0]}">
+							<f:convertNumber type="currency" currencySymbol="R$" locale="en_US"/>
+						</h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Mês" />
+						</f:facet>
+						<h:outputText value="#{filial[1]}" />
+					</h:column>
+				</h:dataTable>
+			</div>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

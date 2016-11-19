@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title><ui:insert name="titulo">Guia Bolso</ui:insert></title>
+	<h:outputStylesheet library="headway\bootstrap-3.3.7-dist\css"
+		name="bootstrap.css" />
+	<h:outputStylesheet library="headway\css" name="estilo.css" />
+	<h:outputScript library="headway\bootstrap-3.3.7-dist\js\"
+		name="bootstrap.js" />
+	<h:outputScript library="headway\js" name="jquery-1.12.4.js" />
+</h:head>
+<h:body>
+	<header>
+		<h:graphicImage library="headway" name="logo.gif" />
+	</header>
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+	<footer> Importacao de movimentacao txt - HeadWay </footer>
+</h:body>
+</html>

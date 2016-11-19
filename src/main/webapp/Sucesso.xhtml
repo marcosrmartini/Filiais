@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<ui:define name="titulo">Carregar arquivo</ui:define>
+	<ui:define name="corpo">
+		<h1>Importação concluida com sucesso</h1>
+
+		<h2> <h:outputLabel value="#{arquivoBean.contador}" /> registros foram importados </h2>
+	</ui:define>
+</ui:composition>

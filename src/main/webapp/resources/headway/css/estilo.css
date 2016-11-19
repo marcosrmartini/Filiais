@@ -1,0 +1,22 @@
+.div_centralizada {
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	display: block;
+	background: gray;
+	width: 260px;
+	height:180px;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+/* table { */
+/* 	background: green; */
+/* 	@extend .table-striped; */
+/* } */
+
+/* dataTable { */
+/* 	@extend .table .table-striped .table-hover; */
+/* } */
+
