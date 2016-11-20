@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 import org.apache.log4j.Logger;
 
 import br.com.headway.etl.model.Filial;
+import br.com.headway.etl.model.FilialPivot;
 import br.com.headway.etl.model.FilialPorMes;
 
 public class FilialRepository implements Serializable{
@@ -54,6 +55,94 @@ public class FilialRepository implements Serializable{
 		return filiais;
 	}
 
+	public List<FilialPivot> getFiliaisPivot(){
+		Query query = manager.createQuery(
+						"select " +
+						"	filial, " +
+						"    sum( " +
+						"    Case " +
+						"		when mes = 'Janeiro' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Janeiro, " +
+						"    sum(Case " +
+						"		when mes = 'Fevereiro' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Fevereiro, " +
+						"    sum(     " +
+						"        Case " +
+						"		when mes = 'Marco' " +
+						"        then valor " +
+						"        else null " +
+						"	end) as Marco, " +
+						"    	Sum(	 " +
+						"	Case " +
+						"		when mes = 'Abril' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Abril, " +
+						"    Sum(     " +
+						"	Case " +
+						"		when mes = 'Maio' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Maio, " +
+						"    Sum( " +
+						"	Case " +
+						"		when mes = 'Junho' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"	as Julho, " +
+						"    Sum( " +
+						"	Case " +
+						"		when mes = 'Agosto' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Agosto, " +
+						"    Sum( " +
+						"	Case " +
+						"		when mes = 'Setembro' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Setembro, " +
+						"    Sum( " +
+						"	Case " +
+						"		when mes = 'Outubro' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Outubro, " +
+						"	Sum( " +
+						"	Case " +
+						"		when mes = 'Novembro' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Novembro, " +
+						"	Sum( " +
+						"	Case " +
+						"		when mes = 'Dezembro' " +
+						"        then valor " +
+						"        else null " +
+						"	end) " +
+						"    as Dezembro " +
+						" from Filial " +
+						" group by filial "
+				);
+		List<FilialPivot> filiais = query.getResultList();
+		return filiais;
+	}
+
+	
+	
 	public List<Filial> getFilialMaisVendeu() {
 		TypedQuery<Filial> query = manager.createNamedQuery("Filial.filialMaisVendeu", Filial.class);
 		return query.getResultList();

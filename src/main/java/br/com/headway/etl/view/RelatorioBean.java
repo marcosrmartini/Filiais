@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import br.com.headway.etl.model.Filial;
+import br.com.headway.etl.model.FilialPivot;
 import br.com.headway.etl.model.FilialPorMes;
 import br.com.headway.etl.repository.FilialRepository;
 
@@ -19,7 +20,9 @@ public class RelatorioBean implements Serializable {
 	private List<Filial> listaFilialMaisVendeu;
 	private List<Filial> listaFilialMaiorCrescimento;
 	private List<Filial> listaFilialMaiorQueda;
+	private List<FilialPivot> listaFilialPivot;
 	private FilialRepository filialDao;
+	
 	
 	public RelatorioBean(){
 		this.filialDao = new FilialRepository();
@@ -41,7 +44,9 @@ public class RelatorioBean implements Serializable {
 		this.listaFilialMaiorCrescimento = this.filialDao.getFilialMaiorCrescimento();
 	}
 
-	
+	public void relatorioFilialPivot(){
+		this.listaFilialPivot = this.filialDao.getFiliaisPivot();
+	}
 	
 	public List<FilialPorMes> getListaFilialPorMes() {
 		return listaFilialPorMes;
@@ -82,6 +87,14 @@ public class RelatorioBean implements Serializable {
 
 	public void setListaFilialMaiorQueda(List<Filial> listaFilialMaiorQueda) {
 		this.listaFilialMaiorQueda = listaFilialMaiorQueda;
+	}
+
+	public List<FilialPivot> getListaFilialPivot() {
+		return listaFilialPivot;
+	}
+
+	public void setListaFilialPivot(List<FilialPivot> listaFilialPivot) {
+		this.listaFilialPivot = listaFilialPivot;
 	}
 	
 	
